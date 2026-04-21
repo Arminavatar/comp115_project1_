@@ -343,7 +343,5 @@ while True:
 
     draw_house(frame)
     update_smoke()
-    # draw_fireflies(frame)
-
     turtle.update()
     frame += 1
