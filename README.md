@@ -14,7 +14,7 @@ This project creates a peaceful moonlit landscape with:
 
 ## Preview
 
-!(progect%201.gif)
+![Demo](progect-1.gif)
 
 ## Features
 
