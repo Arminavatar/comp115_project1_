@@ -77,8 +77,7 @@ def create_stars(n=250):
             "x": x, "y": y,
             "base": random.uniform(1.0, 2.8),
             "ph":   random.uniform(0, math.tau),
-            "sp":   random.uniform(0.04, 0.13),
-        })
+            "sp":   random.uniform(0.04, 0.13), })
 
 def draw_stars(f):
     for s in stars:
@@ -97,8 +96,7 @@ def update_shooters():
             "x":     random.randint(-W + 50, W - 100),
             "y":     random.randint(100, H - 30),
             "trail": random.randint(9, 18),
-            "spd":   random.uniform(10, 20),
-        })
+            "spd":   random.uniform(10, 20),})
     for s in list(shooters):
         for i in range(s["trail"]):
             a = (s["trail"] - i) / s["trail"]
@@ -194,7 +192,7 @@ def draw_house(f):
     rect(hx + 22, hy + 110, 20, 60, (0.32, 0.14, 0.07))
 
     # ── Walls ──
-    rect(hx,          hy, w,      h, (0.40, 0.20, 0.09))
+    rect(hx,hy, w, h, (0.40, 0.20, 0.09))
     rect(hx + w - 10, hy, 10,     h, (0.32, 0.16, 0.07))   # right shadow
 
     # ── Door ──
@@ -202,8 +200,8 @@ def draw_house(f):
     t.color(0.30, 0.14, 0.06)
     t.penup(); t.goto(hx + 55, hy); t.pendown(); t.width(2)
     t.setheading(90); t.forward(72)
-    t.right(90);      t.forward(40)
-    t.right(90);      t.forward(72)
+    t.right(90); t.forward(40)
+    t.right(90); t.forward(72)
     t.penup(); t.width(1)
     t.color(0.88, 0.75, 0.10)
     t.penup(); t.goto(hx + 92, hy + 32); t.dot(5)
@@ -212,17 +210,17 @@ def draw_house(f):
     rect(hx + 46, hy - 8, 58, 8, (0.30, 0.14, 0.06))
 
     # ── Windows ──
-    draw_window(hx + 8,   hy + 38, f)
+    draw_window(hx + 8, hy + 38, f)
     draw_window(hx + 100, hy + 38, f)
 
     # ── Roof (covers chimney base) ──
-    tri((hx - 14,      hy + h),
+    tri((hx - 14, hy + h),
         (hx + w + 14,  hy + h),
         (hx + w // 2,  hy + h + 62),
         (0.28, 0.07, 0.07))
     # Right-slope shadow
-    tri((hx + w // 2,     hy + h + 62),
-        (hx + w + 14,     hy + h),
+    tri((hx + w // 2, hy + h + 62),
+        (hx + w + 14, hy + h),
         (hx + w // 2 + 4, hy + h + 62),
         (0.22, 0.05, 0.05))
     # Roof ridge line
@@ -294,8 +292,7 @@ def update_smoke():
             "vx":   random.uniform(-0.4, 0.4),
             "vy":   random.uniform(1.3, 2.6),
             "life": 1.0,
-            "size": random.uniform(5, 9),
-        })
+            "size": random.uniform(5, 9),})
     for p in smoke:
         g = p["life"] * 0.33
         t.color(g, g, g + 0.06)
@@ -306,7 +303,6 @@ def update_smoke():
         p["life"] -= 0.013
         p["size"] += 0.22
     smoke[:] = [p for p in smoke if p["life"] > 0]
-
 
 
 #  MAIN LOOP 
@@ -325,7 +321,7 @@ while True:
     draw_pond(frame)
 
     # Left fence (right up to house edge) and right fence (from house to tree line)
-    draw_fence(-W,          HY - 4, HX + W - 5,              13)
+    draw_fence(-W, HY - 4, HX + W - 5, 13)
     draw_fence(HX + HW + 5, HY - 4, W - (HX + HW + 5) - 55, 11)
 
     draw_path()
